@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> معجزه الهی | نرجس نوز</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Vazirmatn', 'Tahoma', sans-serif;
+            background: linear-gradient(180deg, #0a0a1a 0%, #1a0e2e 40%, #2d1b4e 100%);
+            min-height: 100vh;
+            color: #f0e6d3;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 400px;
+            background: radial-gradient(ellipse, rgba(255, 215, 0, 0.25) 0%, rgba(255, 215, 0, 0.05) 50%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+            animation: glowPulse 4s ease-in-out infinite;
+        }
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.7; transform: translateX(-50%) scale(1); }
+            50% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+        }
+        .container { max-width: 780px; margin: 0 auto; position: relative; z-index: 1; }
+        .header {
+            text-align: center;
+            padding: 30px 20px 20px;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.2);
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .header .light-ray {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #ffd700, transparent);
+            border-radius: 4px;
+            filter: blur(2px);
+        }
+        .header h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: linear-gradient(180deg, #ffd700, #f0a500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 40px rgba(255, 215, 0, 0.2);
+            letter-spacing: 4px;
+        }
+        .header .sub {
+            font-size: 1rem;
+            color: #c4b08a;
+            margin-top: 6px;
+            letter-spacing: 6px;
+            font-weight: 300;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+            padding-top: 10px;
+            display: inline-block;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 215, 0, 0.12);
+            border-radius: 20px;
+            padding: 24px 22px;
+            margin-bottom: 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            border-color: rgba(255, 215, 0, 0.25);
+            box-shadow: 0 8px 40px rgba(255, 215, 0, 0.05);
+        }
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffd700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.08);
+            padding-bottom: 10px;
+        }
+        .card-title span { font-size: 1.3rem; }
+        label {
+            display: block;
+            font-size: 0.85rem;
+            color: #b8a68b;
+            margin-bottom: 4px;
+            margin-top: 12px;
+        }
+        label:first-of-type { margin-top: 0; }
+        input, select {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            border-radius: 12px;
+            color: #f0e6d3;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        input:focus, select:focus {
+            border-color: #ffd700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.08);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        input::placeholder { color: #6a5f4a; }
+        select option { background: #1a0e2e; color: #f0e6d3; }
+        .row-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+        .btn {
+            width: 100%;
+            padding: 14px;
+            margin-top: 16px;
+            background: linear-gradient(135deg, #ffd700, #e6a800);
+            border: none;
+            border-radius: 14px;
+            color: #0a0a1a;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.25);
+        }
+        .btn:active { transform: scale(0.97); }
+        .result-box {
+            margin-top: 16px;
+            padding: 16px 20px;
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 14px;
+            border-right: 3px solid #ffd700;
+            min-height: 50px;
+            font-size: 1.1rem;
+            color: #f5edd6;
+            word-break: break-all;
+            line-height: 1.8;
+        }
+        .result-box .highlight {
+            color: #ffd700;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+        .result-box .detail {
+            font-size: 0.85rem;
+            color: #a89578;
+            display: block;
+            margin-top: 4px;
+        }
+        .clock-wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px 20px;
+            flex-wrap: wrap;
+            padding: 6px 0;
+        }
+        .clock-item {
+            text-align: center;
+            background: rgba(255, 215, 0, 0.04);
+            padding: 6px 16px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 215, 0, 0.06);
+        }
+        .clock-item .num {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffd700;
+            font-feature-settings: "tnum";
+            letter-spacing: 2px;
+            min-width: 50px;
+            display: inline-block;
+        }
+        .clock-item .label {
+            font-size: 0.65rem;
+            color: #8a7a5e;
+            display: block;
+        }
+        .clock-date {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #c4b08a;
+            margin-top: 8px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 215, 0, 0.06);
+            display: flex;
+            justify-content: center;
+            gap: 8px 16px;
+            flex-wrap: wrap;
+        }
+        .clock-date span {
+            background: rgba(255, 215, 0, 0.04);
+            padding: 4px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.05);
+            font-size: 0.85rem;
+        }
+        .brand-footer {
+            text-align: center;
+            padding: 30px 20px 20px;
+            margin-top: 10px;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+        }
+        .brand-footer .logo-img {
+            max-width: 100px;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 10px;
+        }
+        .brand-footer .logo-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 60px rgba(255, 215, 0, 0.2);
+        }
+        .brand-footer .english-sign {
+            font-family: 'Arial', sans-serif;
+            font-size: 0.9rem;
+            color: #c4b08a;
+            letter-spacing: 3px;
+            font-weight: 300;
+            opacity: 0.7;
+            margin-bottom: 4px;
+        }
+        .brand-footer .persian-dedication {
+            font-size: 0.85rem;
+            color: #e8d5b0;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        .brand-footer .heart {
+            color: #ff6b6b;
+            display: inline-block;
+            animation: heartBeat 1.5s ease-in-out infinite;
+        }
+        @keyframes heartBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        .date-result-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        .date-result-item {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 12px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .date-result-item .dr-label {
+            font-size: 0.75rem;
+            margin-bottom: 4px;
+        }
+        .date-result-item .dr-value {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        @media (max-width: 520px) {
+            .row-2col { grid-template-columns: 1fr; gap: 8px; }
+            .header h1 { font-size: 2rem; }
+            .clock-item .num { font-size: 1.5rem; min-width: 35px; }
+            .card { padding: 18px 14px; }
+            .clock-date span { font-size: 0.7rem; padding: 2px 10px; }
+            .brand-footer .logo-img { max-width: 70px; }
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0a1a; }
+        ::-webkit-scrollbar-thumb { background: #ffd700; border-radius: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <div class="light-ray"></div>
+        <h1>⚜️ معجزه الهی</h1>
+        <div class="sub">نور از آسمان ، هدیه‌ای برای زمین</div>
+    </div>
+
+    <div class="card">
+        <div class="card-title"><span>🕊️</span> زمان مقدس</div>
+        <div class="clock-wrap">
+            <div class="clock-item"><span class="num" id="hour">00</span><span class="label">ساعت</span></div>
+            <div class="clock-item"><span class="num" id="minute">00</span><span class="label">دقیقه</span></div>
+            <div class="clock-item"><span class="num" id="second">00</span><span class="label">ثانیه</span></div>
+        </div>
+        <div class="clock-date">
+            <span id="dateShamsi">☀️ -- --</span>
+            <span id="dateMiladi">🌍 -- --</span>
+            <span id="dateGhamari">🌙 -- --</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title"><span>🔢</span> حساب ابجد اسم</div>
+        <label>نام یا کلمه را وارد کن</label>
+        <input type="text" id="abjadInput" placeholder="مثلاً: علی یا محمد" />
+        <label>نوع ابجد</label>
+        <select id="abjadType">
+            <option value="kabir">ابجد کبیر (استاندارد)</option>
+            <option value="saghir">ابجد صغیر (ریشه عدد)</option>
+        </select>
+        <button class="btn" onclick="calcAbjad()">✨ محاسبه کن</button>
+        <div class="result-box" id="abjadResult">
+            <span style="color:#8a7a5e;">نتیجه اینجا نمایان میشود...</span>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title"><span>📅</span> تبدیل تاریخ</div>
+        <div class="row-2col">
+            <div>
+                <label>سال</label>
+                <input type="number" id="convYear" placeholder="مثلاً 1405" />
+            </div>
+            <div>
+                <label>ماه</label>
+                <input type="number" id="convMonth" placeholder="1-12" />
+            </div>
+            <div>
+                <label>روز</label>
+                <input type="number" id="convDay" placeholder="1-31" />
+            </div>
+            <div>
+                <label>نوع تاریخ ورودی</label>
+                <select id="convType">
+                    <option value="shamsi">شمسی</option>
+                    <option value="miladi">میلادی</option>
+                    <option value="ghamari">قمری</option>
+                </select>
+            </div>
+        </div>
+        <button class="btn" onclick="convertDate()">🔄 تبدیل کن</button>
+        <div class="result-box" id="dateResult">
+            <span style="color:#8a7a5e;">نتیجه تبدیل...</span>
+        </div>
+    </div>
+
+    <div class="brand-footer">
+        <img src="https://cdn.imgurl.ir/uploads/r8816_file_00000000121472468a639ee04338d364.png" alt="لوگو" class="logo-img" />
+        <div class="english-sign">ShKiLLeR</div>
+        <div class="persian-dedication">تقدیم با <span class="heart">🤍</span> به کانال معجزه الهی نرجس نور .</div>
+    </div>
+
+    <div style="text-align:center; font-size:0.7rem; color:#4a3f2e; padding:20px 0 10px; border-top:1px solid rgba(255,215,0,0.04);">
+        ✦ نور از بالاست ✦
+    </div>
+</div>
+
+<script>
+// ================================================================
+//  نام ماه‌ها و روزهای هفته
+// ================================================================
+var PERSIAN_MONTHS = ['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'];
+var GREGORIAN_MONTHS = ['ژانویه','فوریه','مارس','آوریل','مه','ژوئن','ژوئیه','اوت','سپتامبر','اکتبر','نوامبر','دسامبر'];
+var GREGORIAN_WEEKDAYS = ['یکشنبه','دوشنبه','سه‌شنبه','چهارشنبه','پنج‌شنبه','جمعه','شنبه'];
+var ISLAMIC_MONTHS = ['محرم','صفر','ربیع‌الاول','ربیع‌الثانی','جمادی‌الاول','جمادی‌الثانی','رجب','شعبان','رمضان','شوال','ذی‌القعده','ذی‌الحجه'];
+
+// ================================================================
+//  ۱. تبدیل شمسی → میلادی (الگوریتم جلالی - دقیق)
+// ================================================================
+function toGregorian(jy, jm, jd) {
+    var gy, gm, gd, days;
+    jy += 1595;
+    days = -355668 + (365 * jy) + (Math.floor(jy / 33) * 8)
+         + Math.floor(((jy % 33) + 3) / 4) + jd
+         + ((jm < 7) ? (jm - 1) * 31 : ((jm - 7) * 30) + 186);
+
+    gy = 400 * Math.floor(days / 146097);
+    days -= 146097 * Math.floor(days / 146097);
+
+    if (days > 36524) {
+        days--;
+        gy += 100 * Math.floor(days / 36524);
+        days -= 36524 * Math.floor(days / 36524);
+        if (days >= 365) days++;
+    }
+
+    gy += 4 * Math.floor(days / 1461);
+    days -= 1461 * Math.floor(days / 1461);
+
+    if (days > 365) {
+        gy += Math.floor((days - 1) / 365);
+        days = (days - 1) - 365 * Math.floor((days - 1) / 365);
+    }
+
+    gd = days + 1;
+    var isLeap = ((gy % 4 === 0 && gy % 100 !== 0) || (gy % 400 === 0));
+    var sal_a = [0, 31, isLeap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+    gm = 0;
+    for (var i = 0; i < 13 && gd > sal_a[i]; i++) {
+        gd -= sal_a[i];
+        gm++;
+    }
+
+    return { year: gy, month: gm, day: gd };
+}
+
+// ================================================================
+//  ۲. تبدیل میلادی → شمسی (الگوریتم جلالی - دقیق)
+// ================================================================
+function toJalaali(gy, gm, gd) {
+    var g_d_m = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
+    var gy2 = (gm > 2) ? (gy + 1) : gy;
+    var days = 355666 + (365 * gy) + Math.floor((gy2 + 3) / 4)
+             - Math.floor((gy2 + 99) / 100) + Math.floor((gy2 + 399) / 400)
+             + gd + g_d_m[gm - 1];
+    var jy = -1595 + (33 * Math.floor(days / 12053));
+    days %= 12053;
+    jy += 4 * Math.floor(days / 1461);
+    days %= 1461;
+    if (days > 365) {
+        jy += Math.floor((days - 1) / 365);
+        days = (days - 1) % 365;
+    }
+    var jm, jd;
+    if (days < 186) {
+        jm = 1 + Math.floor(days / 31);
+        jd = 1 + (days % 31);
+    } else {
+        jm = 7 + Math.floor((days - 186) / 30);
+        jd = 1 + ((days - 186) % 30);
+    }
+    return { year: jy, month: jm, day: jd };
+}
+
+// ================================================================
+//  ۳. Julian Day Number
+// ================================================================
+function toJDN(gy, gm, gd) {
+    var a = Math.floor((14 - gm) / 12);
+    var y = gy + 4800 - a;
+    var m = gm + 12 * a - 3;
+    return gd + Math.floor((153 * m + 2) / 5) + 365 * y
+         + Math.floor(y / 4) - Math.floor(y / 100) + Math.floor(y / 400) - 32045;
+}
+
+function fromJDN(jd) {
+    var a = jd + 32044;
+    var b = Math.floor((4 * a + 3) / 146097);
+    var c = a - Math.floor((146097 * b) / 4);
+    var d = Math.floor((4 * c + 3) / 1461);
+    var e = c - Math.floor((1461 * d) / 4);
+    var m = Math.floor((5 * e + 2) / 153);
+    var day = e - Math.floor((153 * m + 2) / 5) + 1;
+    var month = m + 3 - 12 * Math.floor(m / 10);
+    var year = 100 * b + d - 4800 + Math.floor(m / 10);
+    return { year: year, month: month, day: day };
+}
+
+// ================================================================
+//  ۴. تبدیل میلادی ↔ قمری (تقویم جدولی - دقیق)
+// ================================================================
+var ISLAMIC_LEAP = [2, 5, 7, 10, 13, 16, 18, 21, 24, 26, 29];
+var ISLAMIC_EPOCH = 1948440;
+
+function isIslamicLeap(iy) {
+    return ISLAMIC_LEAP.indexOf(((iy - 1) % 30) + 1) >= 0;
+}
+
+function islamicMonthDays(iy, im) {
+    if (im === 12) return isIslamicLeap(iy) ? 30 : 29;
+    return (im % 2 === 1) ? 30 : 29;
+}
+
+function gregorianToIslamic(gy, gm, gd) {
+    var jd = toJDN(gy, gm, gd);
+    var l = jd - ISLAMIC_EPOCH;
+    var cycles = Math.floor(l / 10631);
+    var remaining = l - cycles * 10631;
+    var iy = cycles * 30 + 1;
+    for (var y = 1; y <= 30; y++) {
+        var yearLen = isIslamicLeap(iy) ? 355 : 354;
+        if (remaining < yearLen) break;
+        remaining -= yearLen;
+        iy++;
+    }
+    var im = 1;
+    for (var m = 1; m <= 12; m++) {
+        var monthLen = islamicMonthDays(iy, m);
+        if (remaining < monthLen) break;
+        remaining -= monthLen;
+        im++;
+    }
+    return { year: iy, month: im, day: remaining + 1 };
+}
+
+function islamicToGregorian(iy, im, id) {
+    var days = 0;
+    var cycles = Math.floor((iy - 1) / 30);
+    days += cycles * 10631;
+    var yearInCycle = ((iy - 1) % 30) + 1;
+    for (var y = 1; y < yearInCycle; y++) {
+        days += isIslamicLeap(cycles * 30 + y) ? 355 : 354;
+    }
+    for (var m = 1; m < im; m++) {
+        days += islamicMonthDays(iy, m);
+    }
+    days += id - 1;
+    return fromJDN(ISLAMIC_EPOCH + days);
+}
+
+// ================================================================
+//  ۵. ابجد
+// ================================================================
+var ABJAD_KABIR = {
+    'ا':1,'ب':2,'ج':3,'د':4,'ه':5,'و':6,'ز':7,'ح':8,'ط':9,
+    'ی':10,'ک':20,'ل':30,'م':40,'ن':50,'س':60,'ع':70,'ف':80,'ص':90,
+    'ق':100,'ر':200,'ش':300,'ت':400,'ث':500,'خ':600,'ذ':700,'ض':800,'ظ':900,'غ':1000,
+    'گ':20,'چ':3,'پ':2,'ژ':7,'آ':1,'ة':5
+};
+
+function rootNumber(n) {
+    while (n >= 10) {
+        var s = 0;
+        while (n > 0) { s += n % 10; n = Math.floor(n / 10); }
+        n = s;
+    }
+    return n;
+}
+
+function calcAbjad() {
+    var input = document.getElementById('abjadInput').value.trim();
+    var type = document.getElementById('abjadType').value;
+    var resultBox = document.getElementById('abjadResult');
+    if (!input) {
+        resultBox.innerHTML = '<span style="color:#b87a5a;">❌ لطفاً یک نام یا کلمه وارد کن</span>';
+        return;
+    }
+    var total = 0;
+    var details = [];
+    for (var i = 0; i < input.length; i++) {
+        var ch = input[i];
+        var val = ABJAD_KABIR[ch] || 0;
+        if (val === 0) {
+            if (ch.trim() !== '') details.push('«' + ch + '» = ❓');
+            continue;
+        }
+        var dv = (type === 'saghir') ? rootNumber(val) : val;
+        total += dv;
+        details.push('«' + ch + '» = ' + dv);
+    }
+    if (type === 'saghir') total = rootNumber(total);
+    var tl = (type === 'kabir') ? 'ابجد کبیر' : 'ابجد صغیر (ریشه)';
+    resultBox.innerHTML = '<div><span class="highlight">' + total + '</span><span style="color:#c4b08a; margin-right:10px;">مجموع ' + tl + '</span><span class="detail">' + details.join(' ، ') + '</span></div>';
+}
+
+// ================================================================
+//  ۶. تبدیل تاریخ
+// ================================================================
+function toPersianDigits(n) {
+    var pd = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
+    return String(n).replace(/\d/g, function(d) { return pd[parseInt(d)]; });
+}
+
+function convertDate() {
+    var year = parseInt(document.getElementById('convYear').value);
+    var month = parseInt(document.getElementById('convMonth').value);
+    var day = parseInt(document.getElementById('convDay').value);
+    var type = document.getElementById('convType').value;
+    var resultBox = document.getElementById('dateResult');
+
+    if (!year || !month || !day) {
+        resultBox.innerHTML = '<span style="color:#b87a5a;">❌ لطفاً سال، ماه و روز را کامل وارد کن</span>';
+        return;
+    }
+    if (month < 1 || month > 12) {
+        resultBox.innerHTML = '<span style="color:#b87a5a;">❌ ماه باید بین ۱ تا ۱۲ باشد</span>';
+        return;
+    }
+    if (day < 1 || day > 31) {
+        resultBox.innerHTML = '<span style="color:#b87a5a;">❌ روز باید بین ۱ تا ۳۱ باشد</span>';
+        return;
+    }
+
+    var shamsi, miladi, ghamari, gWeekday;
+
+    try {
+        if (type === 'shamsi') {
+            // شمسی → میلادی → قمری
+            miladi = toGregorian(year, month, day);
+            ghamari = gregorianToIslamic(miladi.year, miladi.month, miladi.day);
+            shamsi = { year: year, month: month, day: day };
+            gWeekday = toJDN(miladi.year, miladi.month, miladi.day) % 7;
+
+        } else if (type === 'miladi') {
+            // میلادی → شمسی + قمری
+            shamsi = toJalaali(year, month, day);
+            ghamari = gregorianToIslamic(year, month, day);
+            miladi = { year: year, month: month, day: day };
+            gWeekday = toJDN(year, month, day) % 7;
+
+        } else {
+            // قمری → میلادی → شمسی
+            miladi = islamicToGregorian(year, month, day);
+            shamsi = toJalaali(miladi.year, miladi.month, miladi.day);
+            ghamari = { year: year, month: month, day: day };
+            gWeekday = toJDN(miladi.year, miladi.month, miladi.day) % 7;
+        }
+
+        // اعتبارسنجی نهایی
+        if (!shamsi || !miladi || !ghamari ||
+            isNaN(shamsi.year) || isNaN(miladi.year) || isNaN(ghamari.year)) {
+            resultBox.innerHTML = '<span style="color:#b87a5a;">❌ تاریخ وارد شده نامعتبر است</span>';
+            return;
+        }
+
+        var weekdayName = GREGORIAN_WEEKDAYS[gWeekday] || '';
+
+        resultBox.innerHTML =
+            '<div class="date-result-grid">' +
+                '<div class="date-result-item">' +
+                    '<div class="dr-label" style="color:#ffd700;">☀️ شمسی</div>' +
+                    '<div class="dr-value" style="color:#f5edd6;">' +
+                        toPersianDigits(shamsi.day) + ' ' +
+                        (PERSIAN_MONTHS[shamsi.month - 1] || '--') + ' ' +
+                        toPersianDigits(shamsi.year) +
+                    '</div>' +
+                '</div>' +
+                '<div class="date-result-item">' +
+                    '<div class="dr-label" style="color:#88ccff;">🌍 میلادی</div>' +
+                    '<div class="dr-value" style="color:#f5edd6;">' +
+                        toPersianDigits(miladi.day) + ' ' +
+                        (GREGORIAN_MONTHS[miladi.month - 1] || '--') + ' ' +
+                        toPersianDigits(miladi.year) +
+                    '</div>' +
+                '</div>' +
+                '<div class="date-result-item">' +
+                    '<div class="dr-label" style="color:#66dd88;">🌙 قمری</div>' +
+                    '<div class="dr-value" style="color:#f5edd6;">' +
+                        toPersianDigits(ghamari.day) + ' ' +
+                        (ISLAMIC_MONTHS[ghamari.month - 1] || '--') + ' ' +
+                        toPersianDigits(ghamari.year) +
+                    '</div>' +
+                '</div>' +
+                '<div style="text-align:center; margin-top:4px;">' +
+                    '<span style="font-size:0.8rem; color:#8a7a5e;">📅 ' + weekdayName + '</span>' +
+                '</div>' +
+            '</div>';
+
+    } catch (e) {
+        resultBox.innerHTML = '<span style="color:#b87a5a;">❌ خطا: تاریخ وارد شده نامعتبر است</span>';
+    }
+}
+
+// ================================================================
+//  ۷. ساعت و تاریخ لحظه‌ای
+// ================================================================
+function updateClock() {
+    var now = new Date();
+    document.getElementById('hour').textContent = String(now.getHours()).padStart(2, '0');
+    document.getElementById('minute').textContent = String(now.getMinutes()).padStart(2, '0');
+    document.getElementById('second').textContent = String(now.getSeconds()).padStart(2, '0');
+
+    var shamsiFormatter = new Intl.DateTimeFormat('fa-IR', {
+        year: 'numeric', month: 'long', day: 'numeric', weekday: 'long'
+    });
+    document.getElementById('dateShamsi').innerHTML = '☀️ ' + shamsiFormatter.format(now);
+
+    var gy = now.getFullYear();
+    var gm = now.getMonth() + 1;
+    var gd = now.getDate();
+    var gWeekday = now.getDay();
+    document.getElementById('dateMiladi').innerHTML =
+        '🌍 ' + toPersianDigits(gd) + ' ' + GREGORIAN_MONTHS[gm - 1] + ' ' + toPersianDigits(gy) + ' (' + GREGORIAN_WEEKDAYS[gWeekday] + ')';
+
+    var gh = gregorianToIslamic(gy, gm, gd);
+    document.getElementById('dateGhamari').innerHTML =
+        '🌙 ' + toPersianDigits(gh.day) + ' ' + ISLAMIC_MONTHS[gh.month - 1] + ' ' + toPersianDigits(gh.year);
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+
+document.getElementById('abjadInput').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') calcAbjad();
+});
+document.querySelectorAll('#convYear, #convMonth, #convDay').forEach(function(el) {
+    el.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') convertDate();
+    });
+});
+</script>
+
+</body>
+  </html>
