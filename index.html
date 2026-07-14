@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>معجزه الهی | نرجس نور</title>
+    <title>معجزات | ابجد و تبدیل تاریخ</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -57,7 +57,6 @@
             background: linear-gradient(180deg, #ffd700, #f0a500);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 40px rgba(255, 215, 0, 0.2);
             letter-spacing: 4px;
         }
         .header .sub {
@@ -124,11 +123,7 @@
         }
         input::placeholder { color: #6a5f4a; }
         select option { background: #1a0e2e; color: #f0e6d3; }
-        .row-2col {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
-        }
+        .row-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
         .btn {
             width: 100%;
             padding: 14px;
@@ -143,10 +138,7 @@
             transition: all 0.3s ease;
             letter-spacing: 1px;
         }
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.25);
-        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255, 215, 0, 0.25); }
         .btn:active { transform: scale(0.97); }
         .result-box {
             margin-top: 16px;
@@ -157,20 +149,10 @@
             min-height: 50px;
             font-size: 1.1rem;
             color: #f5edd6;
-            word-break: break-all;
             line-height: 1.8;
         }
-        .result-box .highlight {
-            color: #ffd700;
-            font-weight: 700;
-            font-size: 1.3rem;
-        }
-        .result-box .detail {
-            font-size: 0.85rem;
-            color: #a89578;
-            display: block;
-            margin-top: 4px;
-        }
+        .result-box .highlight { color: #ffd700; font-weight: 700; font-size: 1.3rem; }
+        .result-box .detail { font-size: 0.85rem; color: #a89578; display: block; margin-top: 4px; }
         .clock-wrap {
             display: flex;
             justify-content: center;
@@ -190,16 +172,11 @@
             font-size: 2rem;
             font-weight: 700;
             color: #ffd700;
-            font-feature-settings: "tnum";
             letter-spacing: 2px;
             min-width: 50px;
             display: inline-block;
         }
-        .clock-item .label {
-            font-size: 0.65rem;
-            color: #8a7a5e;
-            display: block;
-        }
+        .clock-item .label { font-size: 0.65rem; color: #8a7a5e; display: block; }
         .clock-date {
             text-align: center;
             font-size: 0.9rem;
@@ -233,10 +210,7 @@
             transition: all 0.3s ease;
             margin-bottom: 10px;
         }
-        .brand-footer .logo-img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 60px rgba(255, 215, 0, 0.2);
-        }
+        .brand-footer .logo-img:hover { transform: scale(1.05); box-shadow: 0 0 60px rgba(255, 215, 0, 0.2); }
         .brand-footer .english-sign {
             font-family: 'Arial', sans-serif;
             font-size: 0.9rem;
@@ -261,24 +235,20 @@
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.2); }
         }
-        .date-result-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-        }
+        .date-result-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
         .date-result-item {
             background: rgba(255, 255, 255, 0.03);
             border-radius: 12px;
             padding: 12px 16px;
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
-        .date-result-item .dr-label {
-            font-size: 0.75rem;
-            margin-bottom: 4px;
-        }
-        .date-result-item .dr-value {
-            font-size: 1rem;
-            font-weight: 600;
+        .date-result-item .dr-label { font-size: 0.75rem; margin-bottom: 4px; }
+        .date-result-item .dr-value { font-size: 1rem; font-weight: 600; }
+        .weekday-line {
+            text-align: center;
+            margin-top: 6px;
+            font-size: 0.85rem;
+            color: #8a7a5e;
         }
         @media (max-width: 520px) {
             .row-2col { grid-template-columns: 1fr; gap: 8px; }
@@ -299,8 +269,8 @@
 
     <div class="header">
         <div class="light-ray"></div>
-        <h1>⚜️ معجزه الهی</h1>
-        <div class="sub">نور از آسمان ، هدیه‌ای برای زمین</div>
+        <h1>⚜️ معجزات</h1>
+        <div class="sub">نور از بالا، برکت برای زمین</div>
     </div>
 
     <div class="card">
@@ -375,15 +345,16 @@
 
 <script>
 // ================================================================
-//  نام ماه‌ها و روزهای هفته
+//  نام ماه‌ها
 // ================================================================
 var PERSIAN_MONTHS = ['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'];
 var GREGORIAN_MONTHS = ['ژانویه','فوریه','مارس','آوریل','مه','ژوئن','ژوئیه','اوت','سپتامبر','اکتبر','نوامبر','دسامبر'];
-var GREGORIAN_WEEKDAYS = ['یکشنبه','دوشنبه','سه‌شنبه','چهارشنبه','پنج‌شنبه','جمعه','شنبه'];
+// getDay(): 0=یکشنبه, 1=دوشنبه, ..., 6=شنبه
+var WEEKDAYS = ['یکشنبه','دوشنبه','سه‌شنبه','چهارشنبه','پنج‌شنبه','جمعه','شنبه'];
 var ISLAMIC_MONTHS = ['محرم','صفر','ربیع‌الاول','ربیع‌الثانی','جمادی‌الاول','جمادی‌الثانی','رجب','شعبان','رمضان','شوال','ذی‌القعده','ذی‌الحجه'];
 
 // ================================================================
-//  ۱. تبدیل شمسی → میلادی (الگوریتم جلالی - دقیق)
+//  ۱. شمسی ← → میلادی (الگوریتم جلالی — دقیق و استاندارد)
 // ================================================================
 function toGregorian(jy, jm, jd) {
     var gy, gm, gd, days;
@@ -391,41 +362,28 @@ function toGregorian(jy, jm, jd) {
     days = -355668 + (365 * jy) + (Math.floor(jy / 33) * 8)
          + Math.floor(((jy % 33) + 3) / 4) + jd
          + ((jm < 7) ? (jm - 1) * 31 : ((jm - 7) * 30) + 186);
-
     gy = 400 * Math.floor(days / 146097);
     days -= 146097 * Math.floor(days / 146097);
-
     if (days > 36524) {
         days--;
         gy += 100 * Math.floor(days / 36524);
         days -= 36524 * Math.floor(days / 36524);
         if (days >= 365) days++;
     }
-
     gy += 4 * Math.floor(days / 1461);
     days -= 1461 * Math.floor(days / 1461);
-
     if (days > 365) {
         gy += Math.floor((days - 1) / 365);
         days = (days - 1) - 365 * Math.floor((days - 1) / 365);
     }
-
     gd = days + 1;
     var isLeap = ((gy % 4 === 0 && gy % 100 !== 0) || (gy % 400 === 0));
     var sal_a = [0, 31, isLeap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
     gm = 0;
-    for (var i = 0; i < 13 && gd > sal_a[i]; i++) {
-        gd -= sal_a[i];
-        gm++;
-    }
-
+    for (var i = 0; i < 13 && gd > sal_a[i]; i++) { gd -= sal_a[i]; gm++; }
     return { year: gy, month: gm, day: gd };
 }
 
-// ================================================================
-//  ۲. تبدیل میلادی → شمسی (الگوریتم جلالی - دقیق)
-// ================================================================
 function toJalaali(gy, gm, gd) {
     var g_d_m = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
     var gy2 = (gm > 2) ? (gy + 1) : gy;
@@ -452,37 +410,12 @@ function toJalaali(gy, gm, gd) {
 }
 
 // ================================================================
-//  ۳. Julian Day Number
-// ================================================================
-function toJDN(gy, gm, gd) {
-    var a = Math.floor((14 - gm) / 12);
-    var y = gy + 4800 - a;
-    var m = gm + 12 * a - 3;
-    return gd + Math.floor((153 * m + 2) / 5) + 365 * y
-         + Math.floor(y / 4) - Math.floor(y / 100) + Math.floor(y / 400) - 32045;
-}
-
-function fromJDN(jd) {
-    var a = jd + 32044;
-    var b = Math.floor((4 * a + 3) / 146097);
-    var c = a - Math.floor((146097 * b) / 4);
-    var d = Math.floor((4 * c + 3) / 1461);
-    var e = c - Math.floor((1461 * d) / 4);
-    var m = Math.floor((5 * e + 2) / 153);
-    var day = e - Math.floor((153 * m + 2) / 5) + 1;
-    var month = m + 3 - 12 * Math.floor(m / 10);
-    var year = 100 * b + d - 4800 + Math.floor(m / 10);
-    return { year: year, month: month, day: day };
-}
-
-// ================================================================
-//  ۴. تبدیل میلادی ↔ قمری (تقویم جدولی - دقیق)
+//  ۲. قمری ← میلادی (الگوریتم جدولی — برای ورودی قمری)
 // ================================================================
 var ISLAMIC_LEAP = [2, 5, 7, 10, 13, 16, 18, 21, 24, 26, 29];
-var ISLAMIC_EPOCH = 1948440;
 
 function isIslamicLeap(iy) {
-    return ISLAMIC_LEAP.indexOf(((iy - 1) % 30) + 1) >= 0;
+    return ISLAMIC_LEAP.indexOf(iy % 30) >= 0;
 }
 
 function islamicMonthDays(iy, im) {
@@ -490,29 +423,9 @@ function islamicMonthDays(iy, im) {
     return (im % 2 === 1) ? 30 : 29;
 }
 
-function gregorianToIslamic(gy, gm, gd) {
-    var jd = toJDN(gy, gm, gd);
-    var l = jd - ISLAMIC_EPOCH;
-    var cycles = Math.floor(l / 10631);
-    var remaining = l - cycles * 10631;
-    var iy = cycles * 30 + 1;
-    for (var y = 1; y <= 30; y++) {
-        var yearLen = isIslamicLeap(iy) ? 355 : 354;
-        if (remaining < yearLen) break;
-        remaining -= yearLen;
-        iy++;
-    }
-    var im = 1;
-    for (var m = 1; m <= 12; m++) {
-        var monthLen = islamicMonthDays(iy, m);
-        if (remaining < monthLen) break;
-        remaining -= monthLen;
-        im++;
-    }
-    return { year: iy, month: im, day: remaining + 1 };
-}
-
 function islamicToGregorian(iy, im, id) {
+    // ابتدا به JDN تبدیل می‌کنیم
+    var epochJDN = 1948440;
     var days = 0;
     var cycles = Math.floor((iy - 1) / 30);
     days += cycles * 10631;
@@ -524,11 +437,89 @@ function islamicToGregorian(iy, im, id) {
         days += islamicMonthDays(iy, m);
     }
     days += id - 1;
-    return fromJDN(ISLAMIC_EPOCH + days);
+
+    var jd = epochJDN + days;
+
+    // JDN به میلادی
+    var a = jd + 32044;
+    var b = Math.floor((4 * a + 3) / 146097);
+    var c = a - Math.floor((146097 * b) / 4);
+    var d = Math.floor((4 * c + 3) / 1461);
+    var e = c - Math.floor((1461 * d) / 4);
+    var m2 = Math.floor((5 * e + 2) / 153);
+    var day = e - Math.floor((153 * m2 + 2) / 5) + 1;
+    var month = m2 + 3 - 12 * Math.floor(m2 / 10);
+    var year = 100 * b + d - 4800 + Math.floor(m2 / 10);
+
+    return { year: year, month: month, day: day };
 }
 
 // ================================================================
-//  ۵. ابجد
+//  ۳. میلادی → قمری (با Intl مرورگر — دقیق مثل تقویم رسمی)
+// ================================================================
+function gregorianToIslamic(gy, gm, gd) {
+    try {
+        var date = new Date(Date.UTC(gy, gm - 1, gd));
+        var parts = new Intl.DateTimeFormat('en-US-u-ca-islamic-umalqura', {
+            year: 'numeric', month: 'numeric', day: 'numeric'
+        }).formatToParts(date);
+
+        var result = {};
+        for (var i = 0; i < parts.length; i++) {
+            if (parts[i].type === 'year') result.year = parseInt(parts[i].value);
+            if (parts[i].type === 'month') result.month = parseInt(parts[i].value);
+            if (parts[i].type === 'day') result.day = parseInt(parts[i].value);
+        }
+        if (result.year && result.month && result.day) return result;
+    } catch(e) {}
+
+    // فال‌بک: اگر Intl پشتیبانی نشد
+    try {
+        var date2 = new Date(Date.UTC(gy, gm - 1, gd));
+        var parts2 = new Intl.DateTimeFormat('en-US-u-ca-islamic-civil', {
+            year: 'numeric', month: 'numeric', day: 'numeric'
+        }).formatToParts(date2);
+        var result2 = {};
+        for (var j = 0; j < parts2.length; j++) {
+            if (parts2[j].type === 'year') result2.year = parseInt(parts2[j].value);
+            if (parts2[j].type === 'month') result2.month = parseInt(parts2[j].value);
+            if (parts2[j].type === 'day') result2.day = parseInt(parts2[j].value);
+        }
+        if (result2.year && result2.month && result2.day) return result2;
+    } catch(e2) {}
+
+    // فال‌بک نهایی: الگوریتم جدولی
+    var jd = toJDN(gy, gm, gd);
+    var l = jd - 1948440;
+    var cycles = Math.floor(l / 10631);
+    var remaining = l - cycles * 10631;
+    var iy = cycles * 30 + 1;
+    for (var yy = 1; yy <= 30; yy++) {
+        var yearLen = isIslamicLeap(iy) ? 355 : 354;
+        if (remaining < yearLen) break;
+        remaining -= yearLen;
+        iy++;
+    }
+    var im = 1;
+    for (var mm = 1; mm <= 12; mm++) {
+        var monthLen = islamicMonthDays(iy, mm);
+        if (remaining < monthLen) break;
+        remaining -= monthLen;
+        im++;
+    }
+    return { year: iy, month: im, day: remaining + 1 };
+}
+
+function toJDN(gy, gm, gd) {
+    var a = Math.floor((14 - gm) / 12);
+    var y = gy + 4800 - a;
+    var m = gm + 12 * a - 3;
+    return gd + Math.floor((153 * m + 2) / 5) + 365 * y
+         + Math.floor(y / 4) - Math.floor(y / 100) + Math.floor(y / 400) - 32045;
+}
+
+// ================================================================
+//  ۴. ابجد
 // ================================================================
 var ABJAD_KABIR = {
     'ا':1,'ب':2,'ج':3,'د':4,'ه':5,'و':6,'ز':7,'ح':8,'ط':9,
@@ -549,35 +540,36 @@ function rootNumber(n) {
 function calcAbjad() {
     var input = document.getElementById('abjadInput').value.trim();
     var type = document.getElementById('abjadType').value;
-    var resultBox = document.getElementById('abjadResult');
+    var box = document.getElementById('abjadResult');
     if (!input) {
-        resultBox.innerHTML = '<span style="color:#b87a5a;">❌ لطفاً یک نام یا کلمه وارد کن</span>';
+        box.innerHTML = '<span style="color:#b87a5a;">❌ لطفاً یک نام یا کلمه وارد کن</span>';
         return;
     }
-    var total = 0;
-    var details = [];
+    var total = 0, details = [];
     for (var i = 0; i < input.length; i++) {
-        var ch = input[i];
-        var val = ABJAD_KABIR[ch] || 0;
-        if (val === 0) {
-            if (ch.trim() !== '') details.push('«' + ch + '» = ❓');
-            continue;
-        }
+        var ch = input[i], val = ABJAD_KABIR[ch] || 0;
+        if (val === 0) { if (ch.trim() !== '') details.push('«' + ch + '» = ❓'); continue; }
         var dv = (type === 'saghir') ? rootNumber(val) : val;
         total += dv;
         details.push('«' + ch + '» = ' + dv);
     }
     if (type === 'saghir') total = rootNumber(total);
     var tl = (type === 'kabir') ? 'ابجد کبیر' : 'ابجد صغیر (ریشه)';
-    resultBox.innerHTML = '<div><span class="highlight">' + total + '</span><span style="color:#c4b08a; margin-right:10px;">مجموع ' + tl + '</span><span class="detail">' + details.join(' ، ') + '</span></div>';
+    box.innerHTML = '<div><span class="highlight">' + total + '</span><span style="color:#c4b08a; margin-right:10px;">مجموع ' + tl + '</span><span class="detail">' + details.join(' ، ') + '</span></div>';
 }
 
 // ================================================================
-//  ۶. تبدیل تاریخ
+//  ۵. تبدیل تاریخ
 // ================================================================
 function toPersianDigits(n) {
     var pd = ['۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'];
     return String(n).replace(/\d/g, function(d) { return pd[parseInt(d)]; });
+}
+
+function getWeekdayName(gy, gm, gd) {
+    // Date.UTC برای جلوگیری از مشکل منطقه زمانی
+    var d = new Date(Date.UTC(gy, gm - 1, gd));
+    return WEEKDAYS[d.getUTCDay()];
 }
 
 function convertDate() {
@@ -585,93 +577,78 @@ function convertDate() {
     var month = parseInt(document.getElementById('convMonth').value);
     var day = parseInt(document.getElementById('convDay').value);
     var type = document.getElementById('convType').value;
-    var resultBox = document.getElementById('dateResult');
+    var box = document.getElementById('dateResult');
 
     if (!year || !month || !day) {
-        resultBox.innerHTML = '<span style="color:#b87a5a;">❌ لطفاً سال، ماه و روز را کامل وارد کن</span>';
+        box.innerHTML = '<span style="color:#b87a5a;">❌ لطفاً سال، ماه و روز را کامل وارد کن</span>';
         return;
     }
     if (month < 1 || month > 12) {
-        resultBox.innerHTML = '<span style="color:#b87a5a;">❌ ماه باید بین ۱ تا ۱۲ باشد</span>';
+        box.innerHTML = '<span style="color:#b87a5a;">❌ ماه باید بین ۱ تا ۱۲ باشد</span>';
         return;
     }
     if (day < 1 || day > 31) {
-        resultBox.innerHTML = '<span style="color:#b87a5a;">❌ روز باید بین ۱ تا ۳۱ باشد</span>';
+        box.innerHTML = '<span style="color:#b87a5a;">❌ روز باید بین ۱ تا ۳۱ باشد</span>';
         return;
     }
 
-    var shamsi, miladi, ghamari, gWeekday;
+    var shamsi, miladi, ghamari, weekday;
 
     try {
         if (type === 'shamsi') {
-            // شمسی → میلادی → قمری
             miladi = toGregorian(year, month, day);
             ghamari = gregorianToIslamic(miladi.year, miladi.month, miladi.day);
             shamsi = { year: year, month: month, day: day };
-            gWeekday = toJDN(miladi.year, miladi.month, miladi.day) % 7;
+            weekday = getWeekdayName(miladi.year, miladi.month, miladi.day);
 
         } else if (type === 'miladi') {
-            // میلادی → شمسی + قمری
             shamsi = toJalaali(year, month, day);
             ghamari = gregorianToIslamic(year, month, day);
             miladi = { year: year, month: month, day: day };
-            gWeekday = toJDN(year, month, day) % 7;
+            weekday = getWeekdayName(year, month, day);
 
         } else {
-            // قمری → میلادی → شمسی
             miladi = islamicToGregorian(year, month, day);
             shamsi = toJalaali(miladi.year, miladi.month, miladi.day);
             ghamari = { year: year, month: month, day: day };
-            gWeekday = toJDN(miladi.year, miladi.month, miladi.day) % 7;
+            weekday = getWeekdayName(miladi.year, miladi.month, miladi.day);
         }
 
-        // اعتبارسنجی نهایی
+        // اعتبارسنجی
         if (!shamsi || !miladi || !ghamari ||
             isNaN(shamsi.year) || isNaN(miladi.year) || isNaN(ghamari.year)) {
-            resultBox.innerHTML = '<span style="color:#b87a5a;">❌ تاریخ وارد شده نامعتبر است</span>';
+            box.innerHTML = '<span style="color:#b87a5a;">❌ تاریخ وارد شده نامعتبر است</span>';
             return;
         }
 
-        var weekdayName = GREGORIAN_WEEKDAYS[gWeekday] || '';
+        var sMonth = PERSIAN_MONTHS[shamsi.month - 1] || '--';
+        var gMonth = GREGORIAN_MONTHS[miladi.month - 1] || '--';
+        var iMonth = ISLAMIC_MONTHS[ghamari.month - 1] || '--';
 
-        resultBox.innerHTML =
+        box.innerHTML =
             '<div class="date-result-grid">' +
                 '<div class="date-result-item">' +
                     '<div class="dr-label" style="color:#ffd700;">☀️ شمسی</div>' +
-                    '<div class="dr-value" style="color:#f5edd6;">' +
-                        toPersianDigits(shamsi.day) + ' ' +
-                        (PERSIAN_MONTHS[shamsi.month - 1] || '--') + ' ' +
-                        toPersianDigits(shamsi.year) +
-                    '</div>' +
+                    '<div class="dr-value" style="color:#f5edd6;">' + toPersianDigits(shamsi.day) + ' ' + sMonth + ' ' + toPersianDigits(shamsi.year) + '</div>' +
                 '</div>' +
                 '<div class="date-result-item">' +
                     '<div class="dr-label" style="color:#88ccff;">🌍 میلادی</div>' +
-                    '<div class="dr-value" style="color:#f5edd6;">' +
-                        toPersianDigits(miladi.day) + ' ' +
-                        (GREGORIAN_MONTHS[miladi.month - 1] || '--') + ' ' +
-                        toPersianDigits(miladi.year) +
-                    '</div>' +
+                    '<div class="dr-value" style="color:#f5edd6;">' + toPersianDigits(miladi.day) + ' ' + gMonth + ' ' + toPersianDigits(miladi.year) + '</div>' +
                 '</div>' +
                 '<div class="date-result-item">' +
                     '<div class="dr-label" style="color:#66dd88;">🌙 قمری</div>' +
-                    '<div class="dr-value" style="color:#f5edd6;">' +
-                        toPersianDigits(ghamari.day) + ' ' +
-                        (ISLAMIC_MONTHS[ghamari.month - 1] || '--') + ' ' +
-                        toPersianDigits(ghamari.year) +
-                    '</div>' +
+                    '<div class="dr-value" style="color:#f5edd6;">' + toPersianDigits(ghamari.day) + ' ' + iMonth + ' ' + toPersianDigits(ghamari.year) + '</div>' +
                 '</div>' +
-                '<div style="text-align:center; margin-top:4px;">' +
-                    '<span style="font-size:0.8rem; color:#8a7a5e;">📅 ' + weekdayName + '</span>' +
-                '</div>' +
+                '<div class="weekday-line">📅 ' + weekday + '</div>' +
             '</div>';
 
-    } catch (e) {
-        resultBox.innerHTML = '<span style="color:#b87a5a;">❌ خطا: تاریخ وارد شده نامعتبر است</span>';
+    } catch(e) {
+        box.innerHTML = '<span style="color:#b87a5a;">❌ خطا: تاریخ وارد شده نامعتبر است</span>';
     }
 }
 
 // ================================================================
-//  ۷. ساعت و تاریخ لحظه‌ای
+//  ۶. ساعت لحظه‌ای
 // ================================================================
 function updateClock() {
     var now = new Date();
@@ -679,35 +656,40 @@ function updateClock() {
     document.getElementById('minute').textContent = String(now.getMinutes()).padStart(2, '0');
     document.getElementById('second').textContent = String(now.getSeconds()).padStart(2, '0');
 
-    var shamsiFormatter = new Intl.DateTimeFormat('fa-IR', {
-        year: 'numeric', month: 'long', day: 'numeric', weekday: 'long'
-    });
-    document.getElementById('dateShamsi').innerHTML = '☀️ ' + shamsiFormatter.format(now);
+    // شمسی — با Intl
+    document.getElementById('dateShamsi').innerHTML = '☀️ ' +
+        new Intl.DateTimeFormat('fa-IR', { year:'numeric', month:'long', day:'numeric', weekday:'long' }).format(now);
 
-    var gy = now.getFullYear();
-    var gm = now.getMonth() + 1;
-    var gd = now.getDate();
-    var gWeekday = now.getDay();
-    document.getElementById('dateMiladi').innerHTML =
-        '🌍 ' + toPersianDigits(gd) + ' ' + GREGORIAN_MONTHS[gm - 1] + ' ' + toPersianDigits(gy) + ' (' + GREGORIAN_WEEKDAYS[gWeekday] + ')';
+    // میلادی
+    var gy = now.getFullYear(), gm = now.getMonth() + 1, gd = now.getDate();
+    document.getElementById('dateMiladi').innerHTML = '🌍 ' +
+        toPersianDigits(gd) + ' ' + GREGORIAN_MONTHS[gm - 1] + ' ' + toPersianDigits(gy);
 
-    var gh = gregorianToIslamic(gy, gm, gd);
-    document.getElementById('dateGhamari').innerHTML =
-        '🌙 ' + toPersianDigits(gh.day) + ' ' + ISLAMIC_MONTHS[gh.month - 1] + ' ' + toPersianDigits(gh.year);
+    // قمری — با Intl (دقیق)
+    try {
+        document.getElementById('dateGhamari').innerHTML = '🌙 ' +
+            new Intl.DateTimeFormat('fa-IR-u-ca-islamic-umalqura', { year:'numeric', month:'long', day:'numeric' }).format(now);
+    } catch(e) {
+        try {
+            document.getElementById('dateGhamari').innerHTML = '🌙 ' +
+                new Intl.DateTimeFormat('fa-IR-u-ca-islamic', { year:'numeric', month:'long', day:'numeric' }).format(now);
+        } catch(e2) {
+            var gh = gregorianToIslamic(gy, gm, gd);
+            document.getElementById('dateGhamari').innerHTML = '🌙 ' +
+                toPersianDigits(gh.day) + ' ' + (ISLAMIC_MONTHS[gh.month - 1] || '') + ' ' + toPersianDigits(gh.year);
+        }
+    }
 }
 
 updateClock();
 setInterval(updateClock, 1000);
 
-document.getElementById('abjadInput').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') calcAbjad();
-});
+// Enter
+document.getElementById('abjadInput').addEventListener('keydown', function(e) { if (e.key === 'Enter') calcAbjad(); });
 document.querySelectorAll('#convYear, #convMonth, #convDay').forEach(function(el) {
-    el.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') convertDate();
-    });
+    el.addEventListener('keydown', function(e) { if (e.key === 'Enter') convertDate(); });
 });
 </script>
 
 </body>
-  </html>
+</html>
